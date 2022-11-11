@@ -1,0 +1,17 @@
+
+#phonebook
+  form#search
+    input#inputSearch.form-control placeholder=("What are you looking for? ..") style=("width: 74%;") type="search" /
+    input#buttonReset.btn.btn-success disabled="" style=("width: 24%;") type="button" value="Reset" /
+  form#phonebook__form.hide   novalidate="" 
+    #phonebook__form__adder
+   
+      input#inputName.form-control autocomplete="off" placeholder=("Введите имя.") type="text" /
+      input#inputTel.form-control autocomplete="off" disabled="" placeholder=("Введите телефон.") type="tel" /
+      input#inputEmail.form-control autocomplete="off" disabled="" placeholder=("Введите почту.") type="email" 
+      input#buttonAdd.btn.btn-success disabled="" type="button" value=("Добавить контант") /
+      /
+  table#phonebook__result 
+    thead 
+    tbody#tbody
+    button id='btn' Добавить контант
