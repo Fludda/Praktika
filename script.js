@@ -15,7 +15,7 @@ const Close = document.getElementById('closeBtn')
 let phonebook = {
 
     
-  /*Приватные переменные*/
+  
   counter: 0,
   arrInputId: ["inputName", "inputTel", "inputEmail", "buttonAdd"],
   arrInputId2: [
@@ -30,23 +30,23 @@ let phonebook = {
     /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/im,
   ],
 
-  /*Слежение, приватные методы*/
+
   listenerTargetAdder() {
     phonebook.arrInputId2[3].addEventListener("click", phonebook.addContact);
-  } /*метод слежение за нажатием кнопки Добавить контакт*/,
+  } ,
 
-  /*добавление данных в таблицу*/
+
   addContact() {
-    /*Возврат блокировки полей ввода*/
+
     for (let i = 1; i < phonebook.arrInputId2.length; i++) {
       phonebook.arrInputId2[i].disabled = true;
-    } /*Конец возврата блокировки полей ввода*/
+    } 
 
-    var arrInputValue = [] /*массив для значений inputов*/,
-      newTr = document.createElement("tr") /*новая строка*/,
-      newTd; /*новая ячейка*/
+    var arrInputValue = [] ,
+      newTr = document.createElement("tr") ,
+      newTd; 
 
-    /*Создание новой строки и ее заполнение*/
+    
     tbody.appendChild(newTr);
     newTr.id = "row__" + phonebook.counter;
     const icon = document.createElement("img");
@@ -82,26 +82,26 @@ let phonebook = {
       parent.classList.add("favorite");
       console.log(parent,'sdsdsdsdsd');
     });
-    /*Конец создания новой строки и ее заполнения*/
+   
 
-    /*Начало записи в локальное хранилище*/
+
     var rowNumber = "row__" + (phonebook.counter - 1);
     var newTrLS = newTr.outerHTML;
     console.log(newTrLS);
     localStorage.setItem(rowNumber, newTrLS);
-    /*Конец записи в локальное хранилище*/
-  } /*конец метода добавления данных в таблицу*/,
 
-  /*удаление данных*/
+  } ,
+
+
   removeContact() {
-    /*Получение ID, по которому кликнули, и удаление этой строки*/
+
     document.getElementById("tbody").onclick = function fn(e = e || event) {
       let target = e.target || e.srcElement;
 
       tbody.removeChild(document.getElementById("row__" + +target.id.slice(8)));
       localStorage.removeItem("row__" + +target.id.slice(8));
-    }; /*Конец получения ID, по которому кликнули, и удаления этой строки*/
-  } /*Конец метода удаления контакта из таблицы*/,
+    }; 
+  } ,
 
   EventListener() {
     for (let i = 0; i < phonebook.arrInputId.length; i++) {
@@ -123,7 +123,7 @@ let phonebook = {
               "Maroon";
         });
     }
-  } /*отлов событий*/,
+  } ,
 
   initializer() {
     var iterator = localStorage.length - 1;
@@ -136,7 +136,7 @@ let phonebook = {
         phonebook.counter++;
       }
     }
-  } /*заполнение таблицы из localStorage*/,
+  } ,
 
   start() {
     // console.log(phonebook.arrInputId2);
